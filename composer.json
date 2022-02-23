@@ -1,0 +1,18 @@
+{
+    "autoload": {
+        "psr-4": {
+          "Core\\": "./Core",
+          "App\\": "./App"
+        },
+        "files": [
+          "./Core/helper.php"
+        ]
+      },
+    "require": {
+        "izniburak/router": "^2.5",
+        "filp/whoops": "^2.14",
+        "illuminate/database": "^8.80",
+        "symfony/dotenv": "^5.4",
+        "jenssegers/blade": "^1.4"
+    }
+}
