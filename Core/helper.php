@@ -10,4 +10,28 @@ function base_url($url = "")
     return $_ENV['BASE_URL'] . $url;
 }
 
-?>
+function admin_url($url = '')
+{
+    if ($url == '') {
+        return $_ENV['ADMIN_URL'];
+    }
+    else {
+        return base_url() . $_ENV['ADMIN_URL'] . $url;
+    }
+}
+
+function upload( $name ){
+    return \Core\Upload::getInstance($name);
+}
+
+function guid() {
+    if (function_exists('com_create_guid') === true)
+    {
+        return trim(com_create_guid(), '{}');
+    }
+    return sprintf('%04X%04X-%04X-%04X-%04X-%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535));
+}
+
+function imgDir(){
+    return "uploads/".date("Y")."/".date("m");
+}

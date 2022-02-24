@@ -13,20 +13,19 @@
                         <li>
                             <div class="list_inner">
                                 <i class="icon-location"></i>
-                                <span>Ave Street, New York, USA</span>
+                                <span>{{ $data->adress }}</span>
                             </div>
                         </li>
                         <li>
                             <div class="list_inner">
                                 <i class="icon-mail-3"></i>
-                                <span><a href="#"><span class="__cf_email__"
-                                            data-cfemail="fb939e979794bb989a8d9a9592d5989496">[email&#160;protected]</span></a></span>
+                                <span><a href="mailto:{{ $data->email }}"><small>{{ $data->email }}</small></a></span>
                             </div>
                         </li>
                         <li>
                             <div class="list_inner">
                                 <i class="icon-mobile"></i>
-                                <span>+77 022 444 05 05</span>
+                                <span>{{ $data->phone }}</span>
                             </div>
                         </li>
                     </ul>
@@ -34,8 +33,7 @@
                 <div class="form">
                     <div class="left">
                         <div class="fields">
-                            <form action="https://marketifythemes.net/" method="post" class="contact_form"
-                                id="contact_form">
+                            <form action="{{ base_url('iletisim') }}" method="post">
                                 <div class="returnmessage"
                                     data-success="Your message has been received, We will contact you soon.">
                                 </div>
@@ -44,19 +42,19 @@
                                     <ul>
                                         <li>
                                             <input id="name" type="text" placeholder="Name"
-                                                autocomplete="off">
+                                                autocomplete="off" name="name_surname">
                                         </li>
                                         <li>
                                             <input id="email" type="text" placeholder="Email"
-                                                autocomplete="off">
+                                                autocomplete="off" name="email">
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="last">
-                                    <textarea id="message" placeholder="Message"></textarea>
+                                    <textarea id="message" placeholder="Message" name="message"></textarea>
                                 </div>
                                 <div class="cavani_tm_button">
-                                    <a id="send_message" href="#">Send Message</a>
+                                    <button id="send_message" type="submit">Send Message</button>
                                 </div>
 
                             </form>

@@ -13,6 +13,7 @@
         "filp/whoops": "^2.14",
         "illuminate/database": "^8.80",
         "symfony/dotenv": "^5.4",
-        "jenssegers/blade": "^1.4"
+        "jenssegers/blade": "^1.4",
+        "verot/class.upload.php": "^2.1"
     }
 }

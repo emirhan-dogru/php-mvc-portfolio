@@ -13,6 +13,7 @@
                     <li><a href="#" data-filter=".vimeo">Vimeo</a></li>
                     <li><a href="#" data-filter=".youtube">Youtube</a></li>
                     <li><a href="#" data-filter=".soundcloud">Soundcloud</a></li>
+                    <li><a href="#" data-filter=".steam">Steam</a></li>
                     <li><a href="#" data-filter=".image">Image</a></li>
                     <li><a href="#" data-filter=".detail">Detail</a></li>
                 </ul>
@@ -55,6 +56,21 @@
                                 <img src="assets/img/thumbs/1-1.jpg" alt="" />
                                 <div class="main" data-img-url="assets/img/portfolio/3.jpg"></div>
                                 <span class="icon"><i class="icon-soundcloud-1"></i></span>
+                                <div class="details">
+                                    <h3>Ashley Flores</h3>
+                                    <span>Soundcloud</span>
+                                </div>
+                                <a class="cavani_tm_full_link soundcloude_link mfp-iframe audio"
+                                    href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/471954807&amp;color=%23ff5500&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="steam">
+                        <div class="list_inner">
+                            <div class="image">
+                                <img src="assets/img/thumbs/1-1.jpg" alt="" />
+                                <div class="main" data-img-url="assets/img/portfolio/3.jpg"></div>
+                                <span class="icon"><i class="icon-steam"></i></span>
                                 <div class="details">
                                     <h3>Ashley Flores</h3>
                                     <span>Soundcloud</span>

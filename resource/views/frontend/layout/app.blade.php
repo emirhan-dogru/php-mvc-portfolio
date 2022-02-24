@@ -117,7 +117,7 @@
             <div class="inner">
                 <div class="wrapper">
                     <div class="avatar">
-                        <div class="image" data-img-url="assets/img/about/1.jpg"></div>
+                        <div class="image" data-img-url="{{ base_url($data->img_path."/".$data->small_img_url) }}"></div>
                     </div>
                     <div class="menu_list">
                         @include('frontend.layout.navbar')
@@ -135,7 +135,7 @@
 
         <div class="cavani_tm_mainpart">
             <div class="author_image">
-                <div class="main" data-img-url="assets/img/about/1.jpg"></div>
+                <div class="main" data-img-url="{{ base_url($data->img_path."/".$data->img_url) }}"></div>
             </div>
             <div class="main_content">
 

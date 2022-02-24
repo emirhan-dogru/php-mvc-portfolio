@@ -10,28 +10,27 @@
                 </div>
                 <div class="wrapper">
                     <div class="left">
-                        <p>Hello there! My name is <strong>Alan Walker.</strong> I am a graphic
-                            designer, and I'm very passionate and dedicated to my work.</p>
-                        <p>With 20 years experience as a professional a graphic designer, I have
-                            acquired the skills and knowledge necessary to make your project a success.
-                        </p>
+                        {{ $data->bio }}
                     </div>
                     <div class="right">
                         <ul>
-                            <li><span class="first">Name:</span><span class="second">Alan Walker</span>
+                            <li><span class="first">Name:</span><span class="second">{{ $data->name_surname }}</span>
                             </li>
-                            <li><span class="first">Address:</span><span class="second">Ave Street, New
-                                    York, USA</span></li>
-                            <li><span class="first">Study:</span><span class="second">Univercity of
-                                    Oxford</span></li>
-                            <li><span class="first">Degree:</span><span class="second">Master of
-                                    Science</span></li>
-                            <li><span class="first">Mail:</span><span class="second"><a href="#"><span
-                                            class="__cf_email__"
-                                            data-cfemail="0c64696060634c6f6d7a6d6265226f6361">[email&#160;protected]</span></a></span>
+                            <li><span class="first">Address:</span><span class="second">{{ $data->adress }}</span></li>
+                            <li><span class="first">Birthdate:</span class="second">{{ $data->birthdate }}</span></li>
+                            <li><span class="first">Job:</span><span class="second">{{ $data->job }}</span></li>
+                            <li><span class="first">Mail:</span><span class="second">
+                                <a href="mailto:{{ $data->email }}">
+                                    <span>{{ $data->email }}</span>
+                                </a>
+                                </span>
                             </li>
-                            <li><span class="first">Phone:</span><span class="second">+77 022 444 05
-                                    05</span></li>
+                            <li><span class="first">Phone:</span><span class="second">
+                                <a href="tel:{{ $data->phone }}">
+                                    {{ $data->phone }}
+                                </a>
+                            </span>
+                        </li>
                         </ul>
                     </div>
                 </div>
