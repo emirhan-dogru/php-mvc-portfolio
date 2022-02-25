@@ -22,7 +22,7 @@
                                     <div class="metabox">
                                         <div class="info">
                                             <span class="category"><a href="#">E.dogru</a></span>
-                                            <span class="date">{{ $blog->created_at }}</span>
+                                            <span class="date">{{ format_date($blog->created_at , 'd F Y' ) }}</span>
                                         </div>
                                         <div class="title">
                                             <h3><a href="#">{{ $blog->name }}</a>
@@ -33,7 +33,7 @@
                                 <div class="news_hidden_details">
                                     <div class="news_popup_informations">
                                         <div class="text">
-                                            <p>{{ $blog->content }}</p>
+                                            <p>{!! $blog->content !!}</p>
                                         </div>
                                     </div>
                                 </div>

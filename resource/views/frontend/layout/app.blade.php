@@ -8,8 +8,9 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Name of your web site">
-    <meta name="author" content="Marketify">
+    <meta name="description" content="{{ App\Models\Settings::select('website_description')->where('id' , 1)->first()->website_description }}">
+    <meta name="keywords" content="{{ App\Models\Settings::select('website_keywords')->where('id' , 1)->first()->website_keywords }}">
+    <meta name="author" content="{{ App\Models\Settings::select('website_author')->where('id' , 1)->first()->website_author }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Cavani | Home</title>
     <base href="{{ config('BASE_FRONTEND_ASSET') }}">
@@ -147,7 +148,7 @@
 
         <div class="cavani_tm_footer">
             <div class="copyright">
-                <p>Copyright &copy; 2021</p>
+                <p>Copyright &copy; {{ date('Y') }} <a href="http://emirhandogru.com">Emirhan Doğru</a></p>
             </div>
             <div class="social">
                 @include('frontend.layout.social-icons')

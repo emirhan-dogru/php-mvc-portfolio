@@ -14,6 +14,9 @@
         "illuminate/database": "^8.80",
         "symfony/dotenv": "^5.4",
         "jenssegers/blade": "^1.4",
-        "verot/class.upload.php": "^2.1"
+        "verot/class.upload.php": "^2.1",
+        "jenssegers/date": "^4.0",
+        "symfony/password-hasher": "^5.4",
+        "aura/session": "^2.1"
     }
 }

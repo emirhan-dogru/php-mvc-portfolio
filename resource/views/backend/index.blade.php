@@ -2,16 +2,15 @@
 
 @section('content')
     <div class="right_col" role="main">
+        <div class="x_content">
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="alert alert-info text-center">
-                    <b>
-                        Yönetim Paneline Hoşgeldiniz
-                    </b>
-                </div>
+            <div class="bs-example" data-example-id="simple-jumbotron">
+              <div class="jumbotron">
+                <h1>Yönetim Paneline Hoşgeldiniz!</h1>
+                <p>Sağ taraftaki menüden işlemlerinize devam edebilirsiniz....</p>
+              </div>
             </div>
-        </div>
-        
+
+          </div>
     </div>
 @endsection

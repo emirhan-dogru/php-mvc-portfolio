@@ -14,6 +14,13 @@
                     <form action="{{ admin_url('/about') }}" method="POST" enctype="multipart/form-data" class="form-horizontal form-label-left">
 
                         <div class="form-group row ">
+                            <label class="control-label col-md-3 col-sm-3 ">Mevcut fotoğraf</label>
+                            <div class="col-md-9 col-sm-9 ">
+                                <img src="{{ base_url($user->img_path."/".$user->small_img_url) }}" width="100">
+                            </div>
+                        </div>
+
+                        <div class="form-group row ">
                             <label class="control-label col-md-3 col-sm-3 ">Fotoğraf yükle</label>
                             <div class="col-md-9 col-sm-9 ">
                                 <input type="file" class="form-control" placeholder="ad soyad giriniz" name="img">

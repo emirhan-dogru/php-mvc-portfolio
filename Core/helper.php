@@ -1,5 +1,7 @@
 <?php
 
+use Symfony\Component\PasswordHasher\Hasher\PasswordHasherFactory;
+
 function config($key, $default = "")
 {
     return $_ENV[$key] ?? $default;
@@ -35,3 +37,42 @@ function guid() {
 function imgDir(){
     return "uploads/".date("Y")."/".date("m");
 }
+
+function format_date($date, $format = 'd/F/Y H:i')
+{
+    $date_formatter = new \Jenssegers\Date\Date();
+    $date_formatter->setlocale('tr');
+    return $date_formatter->parse($date)->format($format);
+}
+
+function passwordHash($password)
+{
+    $factory = new PasswordHasherFactory([
+        'common' => ['algorithm' => 'bcrypt'],
+        'memory-hard' => ['algorithm' => 'sodium'],
+    ]);
+
+    $passwordHasher = $factory->getPasswordHasher('common');
+
+    return $passwordHasher->hash($password);
+}
+
+
+function passwordVerify($hash, $password)
+{
+    $factory = new PasswordHasherFactory([
+        'common' => ['algorithm' => 'bcrypt'],
+        'memory-hard' => ['algorithm' => 'sodium'],
+    ]);
+
+    $passwordHasher = $factory->getPasswordHasher('common');
+
+    return $passwordHasher->verify($hash, $password);
+}
+
+function auth()
+{
+    return \Core\Auth::getInstance();
+}
+
+?>

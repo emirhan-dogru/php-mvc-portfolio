@@ -17,7 +17,7 @@
                             <li><span class="first">Name:</span><span class="second">{{ $data->name_surname }}</span>
                             </li>
                             <li><span class="first">Address:</span><span class="second">{{ $data->adress }}</span></li>
-                            <li><span class="first">Birthdate:</span class="second">{{ $data->birthdate }}</span></li>
+                            <li><span class="first">Birthdate:</span class="second">{{ format_date($data->birthdate , 'd F Y' ) }}</span></li>
                             <li><span class="first">Job:</span><span class="second">{{ $data->job }}</span></li>
                             <li><span class="first">Mail:</span><span class="second">
                                 <a href="mailto:{{ $data->email }}">

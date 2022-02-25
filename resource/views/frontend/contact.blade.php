@@ -34,9 +34,11 @@
                     <div class="left">
                         <div class="fields">
                             <form action="{{ base_url('iletisim') }}" method="post">
-                                <div class="returnmessage"
-                                    data-success="Your message has been received, We will contact you soon.">
+                                @if(isset($_GET['success']) && $_GET['success'] == 'true')
+                                <div style="color: green;">
+                                    Mesajınız başarıyla gönderildi!
                                 </div>
+                                @endif
                                 <div class="empty_notice"><span>Please Fill Required Fields</span></div>
                                 <div class="first">
                                     <ul>

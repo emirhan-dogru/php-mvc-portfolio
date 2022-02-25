@@ -11,41 +11,36 @@
                 </div>
                 <div class="x_content">
                     <br>
-                    <form action="{{ admin_url("/portfolio-edit/$portfolio->id") }}" method="POST" enctype="multipart/form-data" class="form-horizontal form-label-left">
+                    <form action="{{ admin_url("/blog-edit/$blog->id") }}" method="POST" enctype="multipart/form-data" class="form-horizontal form-label-left">
 
                         <div class="form-group row ">
                             <label class="control-label col-md-3 col-sm-3 ">Mevcut Fotoğraf</label>
                             <div class="col-md-9 col-sm-9 ">
-                                <img src="{{ base_url($portfolio->img_path."/".$portfolio->small_img_url) }}" width="100">
+                                <img src="{{ base_url($blog->img_path."/".$blog->small_img_url) }}" width="100">
                             </div>
                         </div>
 
                         <div class="form-group row ">
-                            <label class="control-label col-md-3 col-sm-3 ">Fotoğraf Yükle</label>
+                            <label class="control-label col-md-3 col-sm-3 ">Fotoğraf</label>
                             <div class="col-md-9 col-sm-9 ">
                                 <input type="file" class="form-control" name="img">
                             </div>
                         </div>
 
                         <div class="form-group row ">
-                            <label class="control-label col-md-3 col-sm-3 ">Portfolyo adı</label>
+                            <label class="control-label col-md-3 col-sm-3 ">Blog Adı</label>
                             <div class="col-md-9 col-sm-9 ">
-                                <input type="text" class="form-control" name="name" value="{{ $portfolio->name }}">
+                                <input type="text" class="form-control" name="name" value="{{ $blog->name }}">
                             </div>
                         </div>
 
                         <div class="form-group row ">
-                            <label class="control-label col-md-3 col-sm-3 ">Kategori Adı</label>
+                            <label class="control-label col-md-3 col-sm-3 ">İçerik</label>
                             <div class="col-md-9 col-sm-9 ">
-                                <input type="text" class="form-control" name="category_name" value="{{ $portfolio->category_name }}">
-                            </div>
-                        </div>
-
-                        <div class="form-group row ">
-                            <label class="control-label col-md-3 col-sm-3 ">Url</label>
-                            <div class="col-md-9 col-sm-9 ">
-                                <input type="text" class="form-control" name="url" autocomplete="off" value="{{ $portfolio->url }}">
-                                <span>url adresi kullanmıycaksanız <strong>boş</strong> bırakın</span>
+                                <textarea name="content" id="ckeditor">{{ $blog->content }}</textarea>
+                                <script>
+                                    CKEDITOR.replace( 'ckeditor' );
+                                </script>
                             </div>
                         </div>
 
@@ -63,3 +58,7 @@
         
     </div>
 @endsection
+
+@push('css')
+<script src="https://cdn.ckeditor.com/4.17.2/standard/ckeditor.js"></script>   
+@endpush

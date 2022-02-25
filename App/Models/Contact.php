@@ -13,3 +13,5 @@ class Contact extends Model
 
     public $timestamps  = false;
 }
+
+?>
