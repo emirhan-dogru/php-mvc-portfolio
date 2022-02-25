@@ -4,6 +4,7 @@
           <li><a href="{{ admin_url('/home') }}">Anasayfa</a></li>
           <li><a href="{{ admin_url('/about') }}">Profilim</a></li>
           <li><a href="{{ admin_url('/skills') }}">Beceriler</a></li>
+          <li><a href="{{ admin_url('/portfolio') }}">Portfolyom</a></li>
         </ul>
       </li>
 </ul>

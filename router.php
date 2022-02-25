@@ -17,6 +17,12 @@ $app->router->group(admin_url() , function($router) {
     $router->get('/skill-edit/:id', 'Backend\AdminController@skillEdit');
     $router->post('/skill-edit/:id', 'Backend\AdminController@skillUpdate');
     $router->get('/skill-delete/:id', 'Backend\AdminController@skillDelete');
+    $router->get('/portfolio', 'Backend\AdminController@portfolio');
+    $router->get('/portfolio-add', 'Backend\AdminController@portfolioAdd');
+    $router->post('/portfolio-add', 'Backend\AdminController@portfolioSave');
+    $router->get('/portfolio-edit/:id', 'Backend\AdminController@portfolioEdit');
+    $router->post('/portfolio-edit/:id', 'Backend\AdminController@portfolioUpdate');
+    $router->get('/portfolio-delete/:id', 'Backend\AdminController@portfolioDelete');
 });
 
 

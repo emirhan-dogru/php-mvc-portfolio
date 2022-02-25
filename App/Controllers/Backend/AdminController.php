@@ -3,6 +3,7 @@
 namespace App\Controllers\Backend;
 
 use App\Models\About;
+use App\Models\Portfolio;
 use App\Models\Skills;
 use Core\Controller;
 
@@ -187,6 +188,141 @@ class AdminController extends Controller
         } catch (\Exception $e) {  
             $message = '?success=false';
             header('Location: ' . admin_url('/skills' . $message));
+
+        }
+    }
+
+    public function portfolio()
+    {
+        $portfolios = Portfolio::get();
+        return $this->view('backend.portfolio' , compact('portfolios'));
+    }
+
+    public function portfolioAdd() {
+        return $this->view('backend.portfolio-add');
+    }
+
+    public function portfolioSave() {
+        try { 
+
+            $portfolio_name = $_POST['name'];
+            $category_name = $_POST['category_name'];
+            $url = $_POST['url'];
+
+            if (empty($portfolio_name) || empty($category_name)) {
+                throw "Boş alan bırakmayınız";
+            }
+
+            if (isset($_FILES['img']) && $_FILES['img']['size'] > 0) {
+                $name = guid();
+                $directory = imgDir();
+
+                $upload = upload($_FILES['img']);
+
+                $small = $upload->resize(250)->prefix("small")->rename($name)->to($directory);
+                $original = $upload->rename($name)->to($directory);
+
+                $img = $original->getFile();
+                $small_img = $small->getFile();
+
+                $addPortfolio = Portfolio::create([
+                    "name" => $portfolio_name,
+                    "category_name" => $category_name,
+                    "url" => $url,
+                    "img_url" => $img,
+                    "small_img_url" => $small_img,
+                    "img_path" => $directory
+                ]);
+    
+                if (!$addPortfolio) {
+                    throw "Ekleme işlemi sırasında sorun yaşandı";
+                }
+
+            }
+            else {
+                throw "Lütfen bir resim seçiniz";
+            }
+
+           
+
+            header('Location: ' . admin_url('/portfolio?success=true'));
+
+        } catch (\Exception $e) {  
+            $message = '?success=false';
+            header('Location: ' . admin_url('/portfolio' . $message));
+
+        }
+    }
+
+    public function portfolioEdit($id) {
+        $portfolio = Portfolio::where("id" , $id)->first();
+        return $this->view('backend.portfolio-update' , compact('portfolio'));
+    }
+
+    public function portfolioUpdate($id) {
+        try { 
+            $portfolio_name = $_POST['name'];
+            $category_name = $_POST['category_name'];
+            $url = $_POST['url'];
+
+            if (empty($portfolio_name) || empty($category_name)) {
+                throw "Boş alan bırakmayınız";
+            }
+
+            $updatePortfolio = Portfolio::where('id' , $id)->update([
+                "name" => $portfolio_name,
+                "category_name" => $category_name,
+                "url" => $url
+            ]);
+
+            if (isset($_FILES['img']) && $_FILES['img']['size'] > 0) {
+                $name = guid();
+                $directory = imgDir();
+
+                $upload = upload($_FILES['img']);
+
+                $small = $upload->resize(250)->prefix("small")->rename($name)->to($directory);
+                $original = $upload->rename($name)->to($directory);
+
+                $img = $original->getFile();
+                $small_img = $small->getFile();
+
+                $Updateİmage = Portfolio::where('id' , $id)->update([
+                    "img_url" => $img,
+                    "small_img_url" => $small_img,
+                    "img_path" => $directory
+                ]);
+    
+                if (!$Updateİmage) {
+                    throw "Resim ekleme sırasında sorun yaşandı";
+                }
+
+            }
+
+           
+
+            header('Location: ' . admin_url('/portfolio?success=true'));
+
+        } catch (\Exception $e) {  
+            $message = '?success=false';
+            header('Location: ' . admin_url('/skills' . $message));
+
+        }
+    }
+
+    public function portfolioDelete($id) {
+       try {
+            $deletePortfolio = Portfolio::where("id" , $id)->delete();
+
+            if (!$deletePortfolio) {
+                throw "Silme işlemi sırasında sorun yaşandı";
+            }
+
+            header('Location: ' . admin_url('/portfolio?success=true'));
+
+        } catch (\Exception $e) {  
+            $message = '?success=false';
+            header('Location: ' . admin_url('/portfolio' . $message));
 
         }
     }

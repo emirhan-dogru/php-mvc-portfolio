@@ -43,11 +43,9 @@
                         </div>
                         <div class="list">
                             <ul>
-                                <li><i class="icon-right-dir"></i>Web Development</li>
-                                <li><i class="icon-right-dir"></i>Graphic Design</li>
-                                <li><i class="icon-right-dir"></i>Landing Page</li>
-                                <li><i class="icon-right-dir"></i>On-Page SEO</li>
-                                <li><i class="icon-right-dir"></i>Web Hosting</li>
+                                @foreach (App\Models\Skills::where('key' , 'services')->orderBy('id' , 'ASC')->get() as $skill)
+                                <li><i class="icon-right-dir"></i>{{ $skill->value }}</li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -57,11 +55,9 @@
                         </div>
                         <div class="list">
                             <ul>
-                                <li><i class="icon-right-dir"></i>Painting &amp; Drawing</li>
-                                <li><i class="icon-right-dir"></i>Reading &amp; Writing</li>
-                                <li><i class="icon-right-dir"></i>Music &amp; Cinema</li>
-                                <li><i class="icon-right-dir"></i>Travel &amp; Picnik</li>
-                                <li><i class="icon-right-dir"></i>Rain &amp; Snow</li>
+                                @foreach (App\Models\Skills::where('key' , 'interests')->orderBy('id' , 'ASC')->get() as $skill)
+                                <li><i class="icon-right-dir"></i>{{ $skill->value }}</li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -74,33 +70,17 @@
                             <span>Programming</span>
                         </div>
                         <div class="cavani_progress">
-                            <div class="progress_inner" data-value="95">
-                                <span><span class="label">HTML &amp; CSS</span><span
-                                        class="number">95%</span></span>
+                            @foreach (App\Models\Skills::where('key' , 'programming')->orderBy('id' , 'ASC')->get() as $skill)
+                            <div class="progress_inner" data-value="{{ $skill->progress }}">
+                                <span><span class="label">{{ $skill->value }}</span><span
+                                        class="number">{{ $skill->progress }}%</span></span>
                                 <div class="background">
                                     <div class="bar">
                                         <div class="bar_in"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="progress_inner" data-value="80">
-                                <span><span class="label">JavaScript</span><span
-                                        class="number">80%</span></span>
-                                <div class="background">
-                                    <div class="bar">
-                                        <div class="bar_in"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="progress_inner" data-value="90">
-                                <span><span class="label">WordPress</span><span
-                                        class="number">90%</span></span>
-                                <div class="background">
-                                    <div class="bar">
-                                        <div class="bar_in"></div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="language">
@@ -109,239 +89,22 @@
                         </div>
                         <div class="circular_progress_bar">
                             <ul>
+                                @foreach (App\Models\Skills::where('key' , 'language')->orderBy('id' , 'ASC')->get() as $skill)
                                 <li>
                                     <div class="list_inner">
-                                        <div class="myCircle" data-value="0.95"></div>
-                                        <div class="title"><span>English</span></div>
+                                        @if ($skill->progress == 100)
+                                        <div class="myCircle" data-value="1"></div>
+                                        @else
+                                        @php ($skill->progress = $skill->progress / 100);
+                                        <div class="myCircle" data-value="{{ $skill->progress }}"></div>
+                                        @endif
+                                        <div class="title"><span>{{ $skill->value }}</span></div>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="list_inner">
-                                        <div class="myCircle" data-value="0.8"></div>
-                                        <div class="title"><span>Russian</span></div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="list_inner">
-                                        <div class="myCircle" data-value="0.9"></div>
-                                        <div class="title"><span>Arabic</span></div>
-                                    </div>
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="resume">
-                <div class="wrapper">
-                    <div class="education">
-                        <div class="cavani_tm_title">
-                            <span>Education</span>
-                        </div>
-                        <div class="list">
-                            <div class="univ">
-                                <ul>
-                                    <li>
-                                        <div class="list_inner">
-                                            <div class="time">
-                                                <span>2014 - 2016</span>
-                                            </div>
-                                            <div class="place">
-                                                <h3>Oxford Univercity</h3>
-                                                <span>Master Degree</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list_inner">
-                                            <div class="time">
-                                                <span>2010 - 2014</span>
-                                            </div>
-                                            <div class="place">
-                                                <h3>Texas Univercity</h3>
-                                                <span>Bachelor Degree</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list_inner">
-                                            <div class="time">
-                                                <span>2008 - 2010</span>
-                                            </div>
-                                            <div class="place">
-                                                <h3>Simone College</h3>
-                                                <span>Associate Degree</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="experience">
-                        <div class="cavani_tm_title">
-                            <span>Experience</span>
-                        </div>
-                        <div class="list">
-                            <div class="univ">
-                                <ul>
-                                    <li>
-                                        <div class="list_inner">
-                                            <div class="time">
-                                                <span>2018 - running</span>
-                                            </div>
-                                            <div class="place">
-                                                <h3>Envato Elements</h3>
-                                                <span>Exclusive Author</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list_inner">
-                                            <div class="time">
-                                                <span>2015 - 2018</span>
-                                            </div>
-                                            <div class="place">
-                                                <h3>Avo Corporation</h3>
-                                                <span>Content Manager</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list_inner">
-                                            <div class="time">
-                                                <span>2012 - 2015</span>
-                                            </div>
-                                            <div class="place">
-                                                <h3>FC Barcelona</h3>
-                                                <span>Football Player</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="partners">
-                <div class="cavani_tm_title">
-                    <span>Partners</span>
-                </div>
-                <div class="list">
-                    <ul>
-                        <li>
-                            <div class="list_inner">
-                                <img src="assets/img/partners/1.png" alt="" />
-                                <a class="cavani_tm_full_link" href="#"></a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list_inner">
-                                <img src="assets/img/partners/2.png" alt="" />
-                                <a class="cavani_tm_full_link" href="#"></a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list_inner">
-                                <img src="assets/img/partners/3.png" alt="" />
-                                <a class="cavani_tm_full_link" href="#"></a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list_inner">
-                                <img src="assets/img/partners/4.png" alt="" />
-                                <a class="cavani_tm_full_link" href="#"></a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list_inner">
-                                <img src="assets/img/partners/5.png" alt="" />
-                                <a class="cavani_tm_full_link" href="#"></a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list_inner">
-                                <img src="assets/img/partners/1.png" alt="" />
-                                <a class="cavani_tm_full_link" href="#"></a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list_inner">
-                                <img src="assets/img/partners/2.png" alt="" />
-                                <a class="cavani_tm_full_link" href="#"></a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list_inner">
-                                <img src="assets/img/partners/3.png" alt="" />
-                                <a class="cavani_tm_full_link" href="#"></a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="testimonials">
-                <div class="cavani_tm_title">
-                    <span>Testimonials</span>
-                </div>
-                <div class="list">
-                    <ul class="owl-carousel">
-                        <li>
-                            <div class="list_inner">
-                                <div class="text">
-                                    <i class="icon-quote-left"></i>
-                                    <p>Beautiful minimalist design and great, fast response with
-                                        support. Highly recommend. Thanks Marketify!</p>
-                                </div>
-                                <div class="details">
-                                    <div class="image">
-                                        <div class="main" data-img-url="assets/img/testimonials/1.jpg"></div>
-                                    </div>
-                                    <div class="info">
-                                        <h3>Alexander Walker</h3>
-                                        <span>Graphic Designer</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list_inner">
-                                <div class="text">
-                                    <i class="icon-quote-left"></i>
-                                    <p>These people really know what they are doing! Great customer
-                                        support availability and supperb kindness.</p>
-                                </div>
-                                <div class="details">
-                                    <div class="image">
-                                        <div class="main" data-img-url="assets/img/testimonials/2.jpg"></div>
-                                    </div>
-                                    <div class="info">
-                                        <h3>Armin Van Buuren</h3>
-                                        <span>Content Manager</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list_inner">
-                                <div class="text">
-                                    <i class="icon-quote-left"></i>
-                                    <p>I had a little problem and the support was just awesome to
-                                        quickly solve the situation. And keep going on.</p>
-                                </div>
-                                <div class="details">
-                                    <div class="image">
-                                        <div class="main" data-img-url="assets/img/testimonials/3.jpg"></div>
-                                    </div>
-                                    <div class="info">
-                                        <h3>Baraka Clinton</h3>
-                                        <span>English Teacher</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>
