@@ -12,7 +12,7 @@
     <meta name="keywords" content="{{ App\Models\Settings::select('website_keywords')->where('id' , 1)->first()->website_keywords }}">
     <meta name="author" content="{{ App\Models\Settings::select('website_author')->where('id' , 1)->first()->website_author }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Cavani | Home</title>
+    <title>{{ App\Models\Settings::select('website_title')->where('id' , 1)->first()->website_title }} | {{ now_url() != '' ? now_url() : 'Welcome' }}</title>
     <base href="{{ config('BASE_FRONTEND_ASSET') }}">
 
     <link
@@ -148,7 +148,7 @@
 
         <div class="cavani_tm_footer">
             <div class="copyright">
-                <p>Copyright &copy; {{ date('Y') }} <a href="http://emirhandogru.com">Emirhan Doğru</a></p>
+                <p>Copyright &copy; {{ date('Y') }} <a style="text-decoration: none; color:#000; font-weight:600;" href="http://emirhandogru.com">Emirhan Doğru</a></p>
             </div>
             <div class="social">
                 @include('frontend.layout.social-icons')

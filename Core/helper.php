@@ -75,4 +75,10 @@ function auth()
     return \Core\Auth::getInstance();
 }
 
+function now_url() {
+    $url = explode('/' , $_SERVER['REQUEST_URI']);
+    $url = end($url);
+    return $url;
+}
+
 ?>
